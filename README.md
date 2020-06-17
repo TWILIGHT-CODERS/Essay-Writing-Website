@@ -286,6 +286,8 @@ It is an example of managing e-mail templates. Allows you to create, edit and de
 
 **Laban Menza**
 
+* <https://github.com/LABAN-CODER>
+
 
 ## Copyright and license
 
