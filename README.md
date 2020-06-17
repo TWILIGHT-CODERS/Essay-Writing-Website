@@ -293,5 +293,3 @@ It is an example of managing e-mail templates. Allows you to create, edit and de
 
 copyright 2020 TWILIGHT CODERS Johnson Matoke/Laban Menza. Code released under [the MIT license](https://opensource.org/licenses/MIT).
 There is only one limitation you can't can’t re-distribute the Essay Writing as stock.
-
-As of now I am exploring the possibility of working on CoreUI fulltime - if you are a business that is building core products using CoreUI, I am also open to conversations regarding custom sponsorship / consulting arrangements. Get in touch on [Twitter](https://twitter.com/johnsonnyabayo).
