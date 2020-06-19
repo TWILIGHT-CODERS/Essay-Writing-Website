@@ -28,12 +28,11 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right pt-0">
               <div class="dropdown-header bg-light py-2"><strong>Account</strong></div><a class="dropdown-item" href="#">
+
                 <svg class="c-icon mr-2">
                   <use xlink:href="{{ env('APP_URL', '') }}/icons/sprites/free.svg#cil-bell"></use>
                 </svg> Updates<span class="badge badge-info ml-auto">42</span></a><a class="dropdown-item" href="#">
-                <svg class="c-icon mr-2">
-                  <use xlink:href="{{ env('APP_URL', '') }}/icons/sprites/free.svg#cil-envelope-open"></use>
-                </svg> Messages<span class="badge badge-success ml-auto">42</span></a><a class="dropdown-item" href="#">
+
                 <svg class="c-icon mr-2">
                   <use xlink:href="{{ env('APP_URL', '') }}/icons/sprites/free.svg#cil-task"></use>
                 </svg> Tasks<span class="badge badge-danger ml-auto">42</span></a><a class="dropdown-item" href="#">
@@ -49,17 +48,13 @@
                 </svg> Settings</a><a class="dropdown-item" href="#">
                 <svg class="c-icon mr-2">
                   <use xlink:href="{{ env('APP_URL', '') }}/icons/sprites/free.svg#cil-credit-card"></use>
-                </svg> Payments<span class="badge badge-secondary ml-auto">42</span></a><a class="dropdown-item" href="#">
-                <svg class="c-icon mr-2">
-                  <use xlink:href="{{ env('APP_URL', '') }}/icons/sprites/free.svg#cil-file"></use>
-                </svg> Projects<span class="badge badge-primary ml-auto">42</span></a>
-              <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
-                <svg class="c-icon mr-2">
-                  <use xlink:href="{{ env('APP_URL', '') }}/icons/sprites/free.svg#cil-lock-locked"></use>
-                </svg> Lock Account</a><a class="dropdown-item" href="#">
-                <svg class="c-icon mr-2">
-                  <use xlink:href="{{ env('APP_URL', '') }}/icons/sprites/free.svg#cil-account-logout"></use>
-                </svg><form action="/logout" method="POST"> @csrf <button type="submit" class="btn btn-ghost-dark btn-block">Logout</button></form></a>
+                </svg> Payments<span class="badge badge-secondary ml-auto">42</span></a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item">
+                  <svg class="c-icon mr-2">
+                    <use xlink:href="{{ env('APP_URL', '') }}/icons/sprites/free.svg#cil-account-logout"></use>
+                  </svg><form action="/logout" method="POST"> @csrf <button type="submit" class="btn btn-ghost-dark btn-block">Logout</button></form>
+                </a>
             </div>
           </li>
         </ul>

@@ -15,6 +15,33 @@ Route::group(['middleware' => ['get.menu']], function () {
     Route::get('/', function () {           return view('dashboard.homepage'); });
 
     Route::group(['middleware' => ['role:user']], function () {
+
+        //admin and user shared dashboard
+        Route::get('/dashboard', function () {           return view('dashboard.new'); });
+        Route::get('/new-order',        'UserOrdersController@index')->name('new-order');
+        Route::get('/orders',        'UserOrdersController@orders')->name('orders');
+        Route::get('/messages',        'UserMessagesController@index')->name('orders');
+        Route::get('/settings',        'UserSettingsController@index')->name('settings');
+        Route::get('/invite-friends',        'UserInvitesController@index')->name('orders');
+        Route::get('/my-wallet',        'UserWalletController@index')->name('orders');
+    });
+
+    //user authentication
+    Auth::routes();
+
+    Route::resource('resource/{table}/resource', 'ResourceController')->names([
+        'index'     => 'resource.index',
+        'create'    => 'resource.create',
+        'store'     => 'resource.store',
+        'show'      => 'resource.show',
+        'edit'      => 'resource.edit',
+        'update'    => 'resource.update',
+        'destroy'   => 'resource.destroy'
+    ]);
+
+    Route::group(['middleware' => ['role:admin']], function () {
+
+
         Route::get('/colors', function () {     return view('dashboard.colors'); });
         Route::get('/new', function () {     return view('dashboard.new'); });//edited
         Route::get('/typography', function () { return view('dashboard.typography'); });
@@ -63,30 +90,13 @@ Route::group(['middleware' => ['get.menu']], function () {
             Route::get('/modals', function(){   return view('dashboard.notifications.modals'); });
         });
         Route::resource('notes', 'NotesController');
-    });
-    Auth::routes();
 
-    Route::resource('resource/{table}/resource', 'ResourceController')->names([
-        'index'     => 'resource.index',
-        'create'    => 'resource.create',
-        'store'     => 'resource.store',
-        'show'      => 'resource.show',
-        'edit'      => 'resource.edit',
-        'update'    => 'resource.update',
-        'destroy'   => 'resource.destroy'
-    ]);
-
-    Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('bread',  'BreadController');   //create BREAD (resource)
         Route::resource('users',        'UsersController')->except( ['create', 'store'] );
         Route::resource('roles',        'RolesController');
         Route::resource('mail',        'MailController');
-        
 
-        //admin dashboard
-        Route::get('/dashboard', function () {           return view('dashboard.new'); });
-
-
+        //orders
         Route::get('/completed',        'OrdersController@completed')->name('completed');
         Route::get('/progress',        'OrdersController@inprogress')->name('progress');
         Route::get('/overdue',        'OrdersController@overdue')->name('overdue');
