@@ -39,8 +39,8 @@ class UserSettingsController extends Controller
         $this->authorize('update', $user->profile);
 
         $data=request()->validate([
-            'firstname'=>'required|string|max:255',
-            'lastname'=>'required|string|max:255',
+            'firstname'=>'required|string|alpha|max:255',
+            'lastname'=>'required|string|alpha|max:255',
             'phone'=>'required|numeric|phone:AUTO,KE',
             'profileImage'=>'image',
         ]);
