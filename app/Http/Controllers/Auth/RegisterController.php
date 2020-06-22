@@ -27,7 +27,11 @@ class RegisterController extends Controller
      * Where to redirect users after registration.
      *
      * @var string
-     */
+    //  */
+    // public function user_redirect()
+    // {
+    //     if
+    // }
     protected $redirectTo = '/dashboard';
 
     /**
@@ -49,7 +53,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'numeric','phone:AUTO,KE'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -64,7 +68,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user =  User::create([
-            'name' => $data['name'],
+            'phone' => $data['phone'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

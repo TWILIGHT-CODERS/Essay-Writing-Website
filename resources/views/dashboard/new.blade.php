@@ -5,7 +5,13 @@
           <div class="container-fluid">
             <div class="fade-in">
               <div class="row">
+                <!-- @if(Auth::user()) 
+                  @role('admin') 
+                    {{"Admin"}} 
+                  @endrole 
 
+                  @else{{"user"}}
+                @endif -->
                 <div class="col-6 col-lg-4">
                   <div class="card">
                     <div class="card-body p-3 d-flex align-items-center">

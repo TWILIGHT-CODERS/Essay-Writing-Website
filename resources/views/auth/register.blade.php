@@ -12,10 +12,11 @@
                 <p class="text-muted">Register Essay Writing account</p>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
+
                      <div class="form-group">
-                        <label class="form-col-form-label" for="email">Name</label>
-                        <input name="name" class="form-control @error('name') is-invalid @enderror" id="name" type="text" placeholder="{{ __('Name') }}" value="{{ old('name') }}" autofocus="autofocus">
-                        @error('name')
+                        <label class="form-col-form-label" for="email">{{ __('E-Mail Address') }}</label>
+                        <input name="email" class="form-control @error('email') is-invalid @enderror" id="email" type="email" value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" autofocus="autofocus">
+                        @error('email')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>
@@ -23,9 +24,9 @@
                       </div>
 
                      <div class="form-group">
-                        <label class="form-col-form-label" for="email">{{ __('E-Mail Address') }}</label>
-                        <input name="email" class="form-control @error('email') is-invalid @enderror" id="email" type="email" value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}">
-                        @error('email')
+                        <label class="form-col-form-label" for="phone">Phone</label>
+                        <input name="phone" class="form-control @error('phone') is-invalid @enderror" id="phone" type="text" placeholder="Phone Number" value="{{ old('phone') }}">
+                        @error('phone')
                         <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                         </span>

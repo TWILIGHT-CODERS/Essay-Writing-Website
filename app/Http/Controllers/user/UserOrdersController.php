@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class UserOrdersController extends Controller
@@ -33,5 +34,4 @@ class UserOrdersController extends Controller
         // ->get();
         return view('dashboard.user.orders');
     }
-
 }

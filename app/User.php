@@ -20,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'phone',
     ];
 
     /**
@@ -48,4 +48,26 @@ class User extends Authenticatable
     protected $attributes = [ 
         'menuroles' => 'user',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function($user){
+            $client_rand_id = mt_rand(100000, 999999);
+            $user->profile()->create([
+                'user_id'=> $user->id,
+                'phone'=> $user->phone,
+                'client_id'=> $client_rand_id,
+            ]);
+
+            // Mail::to($user->email)->send(new NewUserWelcomeMail());
+        });
+    }
+
+  public function profile()
+  {
+    // User has one Profile
+    return $this->hasOne(Profile::class);
+  }
 }
