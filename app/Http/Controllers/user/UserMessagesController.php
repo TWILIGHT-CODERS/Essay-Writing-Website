@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\user;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserInvitesController extends Controller
+class UserMessagesController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,6 +26,6 @@ class UserInvitesController extends Controller
     public function index()
     {
         $you = auth()->user();
-        return view('dashboard.user.invite-friends', compact('you'));
+        return view('dashboard.user.messages', compact('you'));
     }
 }

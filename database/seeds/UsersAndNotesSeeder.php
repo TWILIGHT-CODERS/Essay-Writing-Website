@@ -17,8 +17,8 @@ class UsersAndNotesSeeder extends Seeder
      */
     public function run()
     {
-        $numberOfUsers = 10;
-        $numberOfNotes = 100;
+        $numberOfUsers = 1;
+        $numberOfNotes = 5;
         $usersIds = array();
         $statusIds = array();
         $faker = Faker::create();
@@ -62,18 +62,18 @@ class UsersAndNotesSeeder extends Seeder
         array_push($statusIds, DB::getPdo()->lastInsertId());
         /*  insert users   */
         $user = User::create([ 
-            'name' => 'admin',
+            'phone' => '+254725542046',
             'email' => 'johnsonmatoke@gmail.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
-            'menuroles' => 'user,admin' 
+            'menuroles' => 'admin' 
         ]);
         $user->assignRole('admin');
-        $user->assignRole('user');
+        // $user->assignRole('user');
         for($i = 0; $i<$numberOfUsers; $i++){
             $user = User::create([ 
-                'name' => $faker->name(),
+                'phone' => '0712345678',
                 'email' => $faker->unique()->safeEmail(),
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
