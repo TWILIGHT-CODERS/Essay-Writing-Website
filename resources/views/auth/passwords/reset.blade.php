@@ -9,7 +9,7 @@
             <div class="card p-4">
               <div class="card-body">
                 <h1>{{ __('Reset Password') }}</h1>
-                <p class="text-muted">Thanks for confirming your e-mail. You can now proceed to reset your password</p>
+                <p class="text-muted">Thanks for confirming your e-mail. You can now proceed to reset your password.</p>
                 <form method="POST" action="{{ route('password.update') }}">
                     @csrf
                     <input type="hidden" name="token" value="{{ $token }}">
@@ -52,6 +52,7 @@
             </div>
             <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
               <div class="card-body text-center">
+                <div class="c-sidebar-brand mb-3"><img class="c-sidebar-brand-full" src="/assets/brand/coreui-signet-white.svg" width="100" height="100" alt="Essay Writing Logo"></div>
                 <div>
                   <h2>Login</h2>
                   <p>Having second thoughts? Please Click on the Button below to login your own awesome account and access our amazing services.</p>

@@ -15,9 +15,9 @@ class Profile extends Model
   }
 
 // function to update profile image automatically
-  // public function profileImage()
-  // {
-  // 	$imagePath=($this->profileImage) ? $this->profileImage: 'profile/s4xggm1aU1uFvJLBX34HARorE8bHrmh1B6xYeTYO.jpeg';
-  // 	return '/storage/'.$imagePath;
-  // }
+  public function profileImage()
+  {
+  	$imagePath=($this->profileImage) ? $this->profileImage: 'profile/3RMkbWXjgVkadmlGzOmZ0wWmacd5xjrEJEx4znNw.jpeg';
+  	return '/storage/'.$imagePath;
+  }
 }

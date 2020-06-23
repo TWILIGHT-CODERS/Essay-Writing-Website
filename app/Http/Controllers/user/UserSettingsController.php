@@ -33,34 +33,44 @@ class UserSettingsController extends Controller
         return view('dashboard.user.settings', compact('user'));
     }
 
-    public function update()
+    public function update(Request $request)
     {
         $user = auth()->user();
         $this->authorize('update', $user->profile);
 
+        //validate form data and return error
         $data=request()->validate([
             'firstname'=>'required|string|alpha|max:255',
             'lastname'=>'required|string|alpha|max:255',
-            'phone'=>'required|numeric|phone:AUTO,KE',
-            'profileImage'=>'image',
+            'phone'=>'required|numeric|phone:AUTO,KE|unique:users,phone'.$user->id,
+            'profileImage'=>'image|max:8000',
         ]);
 
-//         if(request('profileImage')){
-//             $imagePath=request('profileImage')->store('profile', 'public');
-//             $image=Image::make(public_path("storage/{$imagePath}"))->fit(400,400);
-//             $image->save();
-//
-//             $imageArray=['profileImage'=>$imagePath];
-//         }
+        //if user wants to change profile image
+        if(request('profileImage')){
+            $imagePath=request('profileImage')->store('profile', 'public');
+            $image=Image::make(public_path("storage/{$imagePath}"))->fit(200,200);
+            $image->save();
 
-//        dd($imagePath);
+            $imageArray=['profileImage'=>$imagePath];
+        }
 
-//         auth()->user()->profile->update(array_merge(
-//             $data,
-//             $imageArray ?? []
-//         ));
+       // dd($imagePath);
+        //update profiles table
+        // $countPhone=User::where('phone', '=', $request->input('phone'))->count() > 0;
+        // if ($countPhone) {
+        //     // user found
+        //     return Redirect::back()->with('status','Phone Number Exists !'.$countPhone);
+        // }else{
+        //     return Redirect::back()->with('status','not there !');
+        // }
+        auth()->user()->profile->update(array_merge(
+            $data,
+            $imageArray ?? []
+        ));
 
-          $dataPhone=([
+        //update users table
+        $dataPhone=([
              'phone' => $data['phone'],
          ]);
 

@@ -9,7 +9,7 @@
             <div class="card p-4">
               <div class="card-body">
                 <h1>Sign Up</h1>
-                <p class="text-muted">Register Essay Writing account</p>
+                <p class="text-muted">Create your own Essay Writing account.</p>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
 
@@ -64,6 +64,9 @@
             </div>
             <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
               <div class="card-body text-center">
+                <div class="c-sidebar-brand mb-3">
+                  <img class="c-sidebar-brand-full" src="/assets/brand/coreui-signet-white.svg" width="100" height="100" alt="Essay Writing Logo">
+                </div>
                 <div>
                   <h2>Login</h2>
                   <p>Already having an account? Please Click on the Button below to login your own awesome account and access our amazing services.</p>

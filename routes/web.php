@@ -14,6 +14,9 @@
 Route::group(['middleware' => ['get.menu']], function () {
     Route::get('/', function () {           return view('dashboard.homepage'); });
 
+    //admin and user shared dashboard
+    Route::get('/dashboard', function () {           return view('dashboard.new'); });
+
     Route::group(['middleware' => ['role:user']], function () {
 
         //admin and user shared dashboard

@@ -22,19 +22,22 @@
 
                 @method('PATCH')
                 <div class="row">
-                  <div class="col-sm-5">
+                  <div class="col-sm-3">
                     <a href="javascript: void(0);">
-                      <img src="" class="rounded mr-75" alt="profile image" height="64" width="64">
+                      <img src="{{ $user->profile->profileImage() }}" class="rounded mr-75" alt="profile image" height="70" width="70">
                     </a>
                   </div>
-                  <div class="col-sm-7">
+                  <div class="col-sm-9">
+                    <br>
                     <input type="file" class="btn btn-sm btn-info ml-50 mb-50 mb-sm-0" id="profileImage" name="profileImage">
                     @error('profileImage')
+                    <br>
                     <strong class="text-danger ml-75 mt-10"><small><b>{{ $message }}</b></small></strong>
                     @enderror
                     <p class="text-muted ml-75 mt-50"><small>Allowed JPG, GIF or PNG. Max size of 800kB</small></p>
                   </div>
                 </div>
+                <hr>
                 <!-- /.row-->
                 <div class="row">
                   <div class="form-group col-sm-6">
