@@ -17,7 +17,7 @@ class Profile extends Model
 // function to update profile image automatically
   public function profileImage()
   {
-  	$imagePath=($this->profileImage) ? $this->profileImage: 'profile/3RMkbWXjgVkadmlGzOmZ0wWmacd5xjrEJEx4znNw.jpeg';
+  	$imagePath=($this->profileImage) ? $this->profileImage: 'profile/DefaultProfileImage.jpeg';
   	return '/storage/'.$imagePath;
   }
 }

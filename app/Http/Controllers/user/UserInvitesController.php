@@ -25,7 +25,7 @@ class UserInvitesController extends Controller
      */
     public function index()
     {
-        $you = auth()->user();
-        return view('dashboard.user.invite-friends', compact('you'));
+        $user = auth()->user();
+        return view('dashboard.user.invite-friends', compact('user'));
     }
 }

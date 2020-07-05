@@ -16,22 +16,24 @@ class UserOrdersController extends Controller
 
     public function index()
     {
+        $user = auth()->user();
         // $roles = DB::table('roles')
         // ->leftJoin('role_hierarchy', 'roles.id', '=', 'role_hierarchy.role_id')
         // ->select('roles.*', 'role_hierarchy.hierarchy')
         // ->orderBy('hierarchy', 'asc')
         // ->get();
-        return view('dashboard.user.new-order');
+        return view('dashboard.user.new-order', compact('user'));
     }
 
 
     public function orders()
     {
+        $user = auth()->user();
         // $roles = DB::table('roles')
         // ->leftJoin('role_hierarchy', 'roles.id', '=', 'role_hierarchy.role_id')
         // ->select('roles.*', 'role_hierarchy.hierarchy')
         // ->orderBy('hierarchy', 'asc')
         // ->get();
-        return view('dashboard.user.orders');
+        return view('dashboard.user.orders', compact('user'));
     }
 }

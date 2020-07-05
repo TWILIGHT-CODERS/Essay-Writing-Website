@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
 use App\User;
+use App\Http\Requests\ProfileFormRequest;
 
 class UserSettingsController extends Controller
 {
@@ -33,27 +36,67 @@ class UserSettingsController extends Controller
         return view('dashboard.user.settings', compact('user'));
     }
 
-    public function update(Request $request)
+    public function update(ProfileFormRequest $request)
     {
         $user = auth()->user();
+
         $this->authorize('update', $user->profile);
 
-        //validate form data and return error
-        $data=request()->validate([
-            'firstname'=>'required|string|alpha|max:255',
-            'lastname'=>'required|string|alpha|max:255',
-            'phone'=>'required|numeric|phone:AUTO,KE|unique:users,phone'.$user->id,
-            'profileImage'=>'image|max:8000',
-        ]);
+        $data=array(
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'phone' => $request->phone,
+            'profileImage' => $request->profileImage,
+        );
 
-        //if user wants to change profile image
-        if(request('profileImage')){
-            $imagePath=request('profileImage')->store('profile', 'public');
+        if($request->profileImage){
+            $imagePath=$request->profileImage->store('profile', 'public');
             $image=Image::make(public_path("storage/{$imagePath}"))->fit(200,200);
             $image->save();
 
             $imageArray=['profileImage'=>$imagePath];
         }
+
+        // dd($imagePath);
+
+        auth()->user()->profile->update(array_merge(
+            $data,
+            $imageArray ?? []
+        ));
+
+        // update users table
+        $dataPhone=([
+             'phone' => $request->phone,
+         ]);
+
+        auth()->user()->update($dataPhone);
+
+        return Redirect::back()->with('status','Profile Updated Successfully !');
+        
+        
+
+
+        // $user->update([
+        //          'firstname' => $request->firstname,
+        //          'lastname' => $request->lastname,
+        //          'phone' => $request->phone,
+        //     ]);
+
+        //validate form data and return error
+        // $data=request()->validate([
+        //     'firstname'=>'required|string|alpha|max:255',
+        //     'lastname'=>'required|string|alpha|max:255',
+        //     'phone'=>'required|numeric|phone:AUTO,KE|unique:users,phone' .$user->id,
+        //     'profileImage'=>'image|max:8000',
+        // ]);
+        //if user wants to change profile image
+        // if(request('profileImage')){
+        //     $imagePath=request('profileImage')->store('profile', 'public');
+        //     $image=Image::make(public_path("storage/{$imagePath}"))->fit(200,200);
+        //     $image->save();
+
+        //     $imageArray=['profileImage'=>$imagePath];
+        // }
 
        // dd($imagePath);
         //update profiles table
@@ -64,19 +107,19 @@ class UserSettingsController extends Controller
         // }else{
         //     return Redirect::back()->with('status','not there !');
         // }
-        auth()->user()->profile->update(array_merge(
-            $data,
-            $imageArray ?? []
-        ));
+        // auth()->user()->profile->update(array_merge(
+        //     $data,
+        //     $imageArray ?? []
+        // ));
 
         //update users table
-        $dataPhone=([
-             'phone' => $data['phone'],
-         ]);
+        // $dataPhone=([
+        //      'phone' => $data['phone'],
+        //  ]);
 
-         auth()->user()->update($dataPhone);
+        //  auth()->user()->update($dataPhone);
 
-         return Redirect::back()->with('status','Profile Updated Successfully !');
+        //  return Redirect::back()->with('status','Profile Updated Successfully !');
     }
 
 //  update user password

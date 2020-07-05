@@ -25,7 +25,7 @@ class UserWalletController extends Controller
      */
     public function index()
     {
-        $you = auth()->user();
-        return view('dashboard.user.my-wallet', compact('you'));
+        $user = auth()->user();
+        return view('dashboard.user.my-wallet', compact('user'));
     }
 }

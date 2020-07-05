@@ -122,7 +122,7 @@ class MenusTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    { 
+    {
         /* Get roles */
         $this->adminRole = Role::where('name' , '=' , 'admin' )->first();
         $this->userRole = Role::where('name', '=', 'user' )->first();
@@ -150,63 +150,14 @@ class MenusTableSeeder extends Seeder
         $this->insertLink('user', 'Invite Friends', '/invite-friends', 'cil-people');
         $this->insertLink('user', 'My Wallet', '/my-wallet', 'cil-x-circle');
 
-        $this->beginDropdown('admin', 'Settings', 'cil-calculator');
-            $this->insertLink('admin', 'Notes',                   '/notes');
-            $this->insertLink('admin', 'Users',                   '/users');
-            $this->insertLink('admin', 'Edit menu',               '/menu/menu');
-            $this->insertLink('admin', 'Edit menu elements',      '/menu/element');
-            $this->insertLink('admin', 'Edit roles',              '/roles');
-            $this->insertLink('admin', 'Media',                   '/media');
-            $this->insertLink('admin', 'BREAD',                   '/bread');
-            $this->insertLink('admin', 'Email',                   '/mail');
-        $this->endDropdown();
         $this->insertLink('guest', 'Login', '/login', 'cil-account-logout');
         $this->insertLink('guest', 'Register', '/register', 'cil-account-logout');
-        $this->insertTitle('admin', 'Theme');
-        $this->insertLink('admin', 'Colors', '/colors', 'cil-drop1');
-        $this->insertLink('admin', 'Typography', '/typography', 'cil-pencil');
-        $this->beginDropdown('admin', 'Base', 'cil-puzzle');
-            $this->insertLink('admin', 'Breadcrumb',    '/base/breadcrumb');
-            $this->insertLink('admin', 'Cards',         '/base/cards');
-            $this->insertLink('admin', 'Carousel',      '/base/carousel');
-            $this->insertLink('admin', 'Collapse',      '/base/collapse');
-            $this->insertLink('admin', 'Forms',         '/base/forms');
-            $this->insertLink('admin', 'Jumbotron',     '/base/jumbotron');
-            $this->insertLink('admin', 'List group',    '/base/list-group');
-            $this->insertLink('admin', 'Navs',          '/base/navs');
-            $this->insertLink('admin', 'Pagination',    '/base/pagination');
-            $this->insertLink('admin', 'Popovers',      '/base/popovers');
-            $this->insertLink('admin', 'Progress',      '/base/progress');
-            $this->insertLink('admin', 'Scrollspy',     '/base/scrollspy');
-            $this->insertLink('admin', 'Switches',      '/base/switches');
-            $this->insertLink('admin', 'Tables',        '/base/tables');
-            $this->insertLink('admin', 'Tabs',          '/base/tabs');
-            $this->insertLink('admin', 'Tooltips',      '/base/tooltips');
-        $this->endDropdown();
-            $this->beginDropdown('admin', 'Buttons', 'cil-cursor');
-            $this->insertLink('admin', 'Buttons',           '/buttons/buttons');
-            $this->insertLink('admin', 'Buttons Group',     '/buttons/button-group');
-            $this->insertLink('admin', 'Dropdowns',         '/buttons/dropdowns');
-            $this->insertLink('admin', 'Brand Buttons',     '/buttons/brand-buttons');
-        $this->endDropdown();
-        $this->insertLink('admin', 'Charts', '/charts', 'cil-chart-pie');
-        $this->beginDropdown('admin', 'Icons', 'cil-star');
-            $this->insertLink('admin', 'CoreUI Icons',      '/icon/coreui-icons');
-            $this->insertLink('admin', 'Flags',             '/icon/flags');
-            $this->insertLink('admin', 'Brands',            '/icon/brands');
-        $this->endDropdown();
-        $this->beginDropdown('admin', 'Notifications', 'cil-bell');
-            $this->insertLink('admin', 'Alerts',     '/notifications/alerts');
-            $this->insertLink('admin', 'Badge',      '/notifications/badge');
-            $this->insertLink('admin', 'Modals',     '/notifications/modals');
-        $this->endDropdown();
-        $this->insertLink('admin', 'Widgets', '/widgets', 'cil-calculator');
+        
         $this->insertTitle('admin', 'Extras');
         $this->beginDropdown('admin', 'Pages', 'cil-star');
-            $this->insertLink('admin', 'Login',         '/login');
-            $this->insertLink('admin', 'Register',      '/register');
-            $this->insertLink('admin', 'Error 404',     '/404');
-            $this->insertLink('admin', 'Error 500',     '/500');
+            $this->insertLink('admin', 'Blog',          '/blog_admin');
+            // $this->insertLink('admin', 'Login',         '/login');
+            // $this->insertLink('admin', 'Register',      '/register');
         $this->endDropdown();
         // $this->insertLink('guest,user,admin', 'Download CoreUI', 'https://coreui.io', 'cil-cloud-download');
         // $this->insertLink('guest,user,admin', 'Try CoreUI PRO', 'https://coreui.io/pro/', 'cil-layers');
@@ -218,20 +169,75 @@ class MenusTableSeeder extends Seeder
         ]);
         $this->menuId = DB::getPdo()->lastInsertId();  //set menuId
         $this->beginDropdown('guest,user,admin', 'Quick Links');
-        $id = $this->insertLink('user', 'New Order',    '/new-order');
-        $id = $this->insertLink('user', 'Orders',    '/orders');
-        $id = $this->insertLink('user', 'Messages',    '/messages');
-        $id = $this->insertLink('user', 'Invite Friends',    '/invite-friends');
-        $id = $this->insertLink('admin', 'Notes',              '/notes');
-        $id = $this->insertLink('admin', 'Users',                   '/users');
+            $id = $this->insertLink('user', 'New Order',    '/new-order');
+            $id = $this->insertLink('user', 'Orders',    '/orders');
+            $id = $this->insertLink('user', 'Messages',    '/messages');
+            $id = $this->insertLink('user', 'Invite Friends',    '/invite-friends');
+            $id = $this->insertLink('admin', 'Notes',              '/notes');
+            $id = $this->insertLink('admin', 'Users',                   '/users');
+            $id = $this->insertLink('admin', 'Blog',                   '/blog_admin');
         $this->endDropdown();
-        $id = $this->beginDropdown('admin', 'Settings');
 
-        $id = $this->insertLink('admin', 'Edit menu',               '/menu/menu');
-        $id = $this->insertLink('admin', 'Edit menu elements',      '/menu/element');
-        $id = $this->insertLink('admin', 'Edit roles',              '/roles');
-        $id = $this->insertLink('admin', 'Media',                   '/media');
-        $id = $this->insertLink('admin', 'BREAD',                   '/bread');
+        // admin setting top links
+        $id = $this->beginDropdown('admin', 'Settings');
+            $id = $this->insertLink('admin', 'Notes',                   '/notes');
+            $id = $this->insertLink('admin', 'Users',                   '/users');
+            $id = $this->insertLink('admin', 'Edit menu',               '/menu/menu');
+            $id = $this->insertLink('admin', 'Edit menu elements',      '/menu/element');
+            $id = $this->insertLink('admin', 'Edit roles',              '/roles');
+            $id = $this->insertLink('admin', 'Media',                   '/media');
+            $id = $this->insertLink('admin', 'BREAD',                   '/bread');
+            $id = $this->insertLink('admin', 'Email',                   '/mail');
+        $this->endDropdown();
+        //admin base top links
+        $id = $this->beginDropdown('admin', 'Base');
+            $id = $this->insertLink('admin', 'Breadcrumb',    '/base/breadcrumb');
+            $id = $this->insertLink('admin', 'Cards',         '/base/cards');
+            $id = $this->insertLink('admin', 'Carousel',      '/base/carousel');
+            $id = $this->insertLink('admin', 'Collapse',      '/base/collapse');
+            $id = $this->insertLink('admin', 'Forms',         '/base/forms');
+            $id = $this->insertLink('admin', 'Jumbotron',     '/base/jumbotron');
+            $id = $this->insertLink('admin', 'List group',    '/base/list-group');
+            $id = $this->insertLink('admin', 'Navs',          '/base/navs');
+            $id = $this->insertLink('admin', 'Pagination',    '/base/pagination');
+            $id = $this->insertLink('admin', 'Popovers',      '/base/popovers');
+            $id = $this->insertLink('admin', 'Progress',      '/base/progress');
+            $id = $this->insertLink('admin', 'Scrollspy',     '/base/scrollspy');
+            $id = $this->insertLink('admin', 'Switches',      '/base/switches');
+            $id = $this->insertLink('admin', 'Tables',        '/base/tables');
+            $id = $this->insertLink('admin', 'Tabs',          '/base/tabs');
+            $id = $this->insertLink('admin', 'Tooltips',      '/base/tooltips');
+        $this->endDropdown();
+
+        //buttons links
+        $id = $this->beginDropdown('admin', 'Buttons');
+            $id = $this->insertLink('admin', 'Buttons',           '/buttons/buttons');
+            $id = $this->insertLink('admin', 'Buttons Group',     '/buttons/button-group');
+            $id = $this->insertLink('admin', 'Dropdowns',         '/buttons/dropdowns');
+            $id = $this->insertLink('admin', 'Brand Buttons',     '/buttons/brand-buttons');
+        $this->endDropdown();
+
+        //icons links
+        $id = $this->beginDropdown('admin', 'Icons');
+            $id = $this->insertLink('admin', 'CoreUI Icons',      '/icon/coreui-icons');
+            $id = $this->insertLink('admin', 'Flags',             '/icon/flags');
+            $id = $this->insertLink('admin', 'Brands',            '/icon/brands');
+        $this->endDropdown();
+
+        //Notifications links
+        $id = $this->beginDropdown('admin', 'Notifications');
+            $id = $this->insertLink('admin', 'Alerts',     '/notifications/alerts');
+            $id = $this->insertLink('admin', 'Badge',      '/notifications/badge');
+            $id = $this->insertLink('admin', 'Modals',     '/notifications/modals');
+        $this->endDropdown();
+
+        //Themes links
+        $id = $this->beginDropdown('admin', 'Theme');
+            $id = $this->insertLink('admin', 'Colors', '/colors');
+            $id = $this->insertLink('admin', 'Typography', '/typography');
+            $id = $this->insertLink('admin', 'Widgets', '/widgets');
+            $id = $this->insertLink('admin', 'Error 404',     '/404');
+            $id = $this->insertLink('admin', 'Error 500',     '/500');
         $this->endDropdown();
 
         $this->joinAllByTransaction(); ///   <===== Must by use on end of this seeder

@@ -18,8 +18,8 @@ class CreateProfilesTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('phone');
             $table->text('client_id')->unique()->nullable();
-            $table->date('firstname')->nullable();
-            $table->string('lastname')->unique()->nullable();
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
             $table->string('profileImage')->nullable();
             $table->timestamps();
         });

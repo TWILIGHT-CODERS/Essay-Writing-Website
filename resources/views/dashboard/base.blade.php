@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<!--
-* CoreUI - Free Bootstrap Admin Template
-* @version v3.0.0-alpha.1
-* @link https://coreui.io
-* Copyright (c) 2019 creativeLabs Łukasz Holeczek
-* Licensed under MIT (https://coreui.io/license)
--->
-
 <html lang="en">
   <head>
     <base href="./">
@@ -73,7 +65,7 @@
 
         <main class="c-main">
 
-          @yield('content') 
+          @yield('content')
 
         </main>
       </div>

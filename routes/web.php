@@ -12,15 +12,30 @@
 */
 
 Route::group(['middleware' => ['get.menu']], function () {
-    Route::get('/', function () {           return view('dashboard.homepage'); });
+    //web routes
+    Route::get('/', function () {           return view('web.index'); });
+    Route::get('/blogs', function () {           return view('web.blog.blog'); });
+    Route::get('/price', function () {           return view('web.price'); });
+    Route::get('/how-it-works', function () {           return view('web.works.how-it-works'); });
+    Route::get('/samples', function () {           return view('web.works.samples'); });
+    Route::get('/faqs', function () {           return view('web.works.faqs'); });
+    Route::get('/paraphrasing', function () {           return view('web.services.paraphrasing'); }); 
+    Route::get('/essay', function () {           return view('web.services.essay');  });
+    Route::get('/assignment', function () {           return view('web.services.assignment'); }); 
+    Route::get('/grading', function () {           return view('web.services.grading');  }); 
+    Route::get('/resume', function () {           return view('web.services.resume'); }); 
+    Route::get('/dissertation', function () {           return view('web.services.dissertation'); }); 
+    Route::get('/proofreading', function () {           return view('web.services.proofread'); }); 
+    Route::get('/problem-solving', function () {           return view('web.services.problem-solve'); }); 
+    Route::get('/reviews', function () {           return view('web.reviews'); });
+    Route::get('/essays', function () {           return view('web.essays'); });
+    Route::get('/contact-us', function () {           return view('web.contact'); });    
+
 
     //admin and user shared dashboard
     Route::get('/dashboard', function () {           return view('dashboard.new'); });
 
     Route::group(['middleware' => ['role:user']], function () {
-
-        //admin and user shared dashboard
-        Route::get('/dashboard', function () {           return view('dashboard.new'); });
         Route::get('/new-order',        'User\UserOrdersController@index')->name('new-order');
         Route::get('/orders',        'User\UserOrdersController@orders')->name('orders');
         Route::get('/messages',        'User\UserMessagesController@index')->name('orders');

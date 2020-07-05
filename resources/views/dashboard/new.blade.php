@@ -168,7 +168,7 @@
                         <tbody>
                           <tr>
                             <td class="text-center">
-                              <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="c-avatar-status bg-success"></span></div>
+                              <div class="c-avatar"><img class="c-avatar-img" src="{{ Auth::user()->profile->profileImage() }}" alt="user@email.com"><span class="c-avatar-status bg-success"></span></div>
                             </td>
                             <td>
                               <div>Yiorgos Avraamu</div>
@@ -195,7 +195,7 @@
                           </tr>
                           <tr>
                             <td class="text-center">
-                              <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/2.jpg" alt="user@email.com"><span class="c-avatar-status bg-danger"></span></div>
+                              <div class="c-avatar"><img class="c-avatar-img" src="{{ Auth::user()->profile->profileImage() }}" alt="user@email.com"><span class="c-avatar-status bg-danger"></span></div>
                             </td>
                             <td>
                               <div>Avram Tarasios</div>
@@ -222,7 +222,7 @@
                           </tr>
                           <tr>
                             <td class="text-center">
-                              <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/3.jpg" alt="user@email.com"><span class="c-avatar-status bg-warning"></span></div>
+                              <div class="c-avatar"><img class="c-avatar-img" src="{{ Auth::user()->profile->profileImage() }}" alt="user@email.com"><span class="c-avatar-status bg-warning"></span></div>
                             </td>
                             <td>
                               <div>Quintin Ed</div>
@@ -249,7 +249,7 @@
                           </tr>
                           <tr>
                             <td class="text-center">
-                              <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/4.jpg" alt="user@email.com"><span class="c-avatar-status bg-secondary"></span></div>
+                              <div class="c-avatar"><img class="c-avatar-img" src="{{ Auth::user()->profile->profileImage() }}" alt="user@email.com"><span class="c-avatar-status bg-secondary"></span></div>
                             </td>
                             <td>
                               <div>Enéas Kwadwo</div>
@@ -276,7 +276,7 @@
                           </tr>
                           <tr>
                             <td class="text-center">
-                              <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/5.jpg" alt="user@email.com"><span class="c-avatar-status bg-success"></span></div>
+                              <div class="c-avatar"><img class="c-avatar-img" src="{{ Auth::user()->profile->profileImage() }}" alt="user@email.com"><span class="c-avatar-status bg-success"></span></div>
                             </td>
                             <td>
                               <div>Agapetus Tadeáš</div>
@@ -303,7 +303,7 @@
                           </tr>
                           <tr>
                             <td class="text-center">
-                              <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/6.jpg" alt="user@email.com"><span class="c-avatar-status bg-danger"></span></div>
+                              <div class="c-avatar"><img class="c-avatar-img" src="{{ Auth::user()->profile->profileImage() }}" alt="user@email.com"><span class="c-avatar-status bg-danger"></span></div>
                             </td>
                             <td>
                               <div>Friderik Dávid</div>

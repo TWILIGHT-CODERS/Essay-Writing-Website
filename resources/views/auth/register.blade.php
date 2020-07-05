@@ -9,7 +9,7 @@
             <div class="card p-4">
               <div class="card-body">
                 <h1>Sign Up</h1>
-                <p class="text-muted">Create your own Essay Writing account.</p>
+                <p class="text-muted">Create your own Elites paper account.</p>
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
 
@@ -56,13 +56,13 @@
 
                     <div class="row">
                     <div class="col-6">
-                        <button class="btn btn-primary px-4" type="submit">{{ __('Register') }}</button>
+                        <button class="btn btn-purple px-4" type="submit">{{ __('Register') }}</button>
                     </div>
                     </form>
                     </div>
               </div>
             </div>
-            <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+            <div class="card text-white elites-bg py-5 d-md-down-none" style="width:44%">
               <div class="card-body text-center">
                 <div class="c-sidebar-brand mb-3">
                   <img class="c-sidebar-brand-full" src="/assets/brand/coreui-signet-white.svg" width="100" height="100" alt="Essay Writing Logo">
@@ -70,7 +70,7 @@
                 <div>
                   <h2>Login</h2>
                   <p>Already having an account? Please Click on the Button below to login your own awesome account and access our amazing services.</p>
-                  <a href="{{ route('login') }}" class="btn btn-info active mt-3">{{ __('Login') }}</a>
+                  <a href="{{ route('login') }}" class="btn btn-orange active mt-3">{{ __('Login') }}</a>
                 </div>
               </div>
             </div>
