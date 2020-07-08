@@ -48,7 +48,7 @@
 
     <!--SECTION START-->
     <section>
-        <div class="container com-sp pad-bot-70 pg-inn">
+        <div class="container com-sp pad-bot-70 pg-inn"style="display: flex;">
             <div class="row">
                 <div class="cor">
                     <div class="col-md-8">
@@ -61,6 +61,7 @@
                                 @else
                                     Comments are disabled
                                 @endif
+                                                      
                             </div>
                         </div>
                     </div>
@@ -131,6 +132,8 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
+                        <!-- sticky -->
                     </div>
                 </div>
             </div>

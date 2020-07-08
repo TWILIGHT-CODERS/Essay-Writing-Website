@@ -55,6 +55,11 @@ mix.copy('resources/js/coreui/charts.js', 'public/js');
 mix.copy('resources/js/coreui/widgets.js', 'public/js');
 mix.copy('resources/js/coreui/popovers.js', 'public/js');
 mix.copy('resources/js/coreui/tooltips.js', 'public/js');
+
+//datatables css/js
+mix.copy('resources/js/datatables-bs4', 'public/js/datatables-bs4');
+mix.copy('resources/sass/datatables-bs4', 'public/css/datatables-bs4');
+
 // details scripts admin-panel
 mix.js('resources/js/coreui/menu-create.js', 'public/js');
 mix.js('resources/js/coreui/menu-edit.js', 'public/js');

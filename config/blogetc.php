@@ -159,6 +159,7 @@ return [
         //      'disabled' (turn comments off)
         // default: built_in
         'type_of_comments_to_show' => 'built_in',
+        // 'type_of_comments_to_show' => 'disqus',
 
         // max num of comments to show on a single blog post. Set to a lower number for smaller page sizes. No comment pagination is built in yet.
         'max_num_of_comments_to_show' => 1000,

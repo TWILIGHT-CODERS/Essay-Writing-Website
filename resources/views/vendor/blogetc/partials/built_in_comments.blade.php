@@ -1,22 +1,12 @@
 @php
     /** @var \WebDevEtc\BlogEtc\Models\Comment[] $comments */
+    use WebDevEtc\BlogEtc\Models\Comment;
 @endphp
-<h3>All Comments</h3>
+<h3>All Comments <?php $commentCount = Comment::withoutGlobalScopes()
+    ->where('blog_etc_post_id', $post->id)
+    ->where('approved', true)
+     ->count();?> ({{$commentCount}})</h3>
 @forelse($comments as $comment)
-{{--    <div class="card bg-light mb-3">--}}
-{{--        <div class="card-header">--}}
-{{--            {{ $comment->author() }}--}}
-{{--            @if(config('blogetc.comments.ask_for_author_website') && $comment->author_website)--}}
-{{--                (<a href="{{ $comment->author_websitae }}" target="_blank" rel="noopener">website</a>)--}}
-{{--            @endif--}}
-{{--            <span class="float-right" title="{{ $comment->created_at}}">--}}
-{{--                <small>{{ $comment->created_at->diffForHumans() }}</small>--}}
-{{--            </span>--}}
-{{--        </div>--}}
-{{--        <div class="card-body bg-white">--}}
-{{--            <p class="card-text">{!! nl2br(e($comment->comment)) !!}</p>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
 <div class="col-md-12">
     <div>

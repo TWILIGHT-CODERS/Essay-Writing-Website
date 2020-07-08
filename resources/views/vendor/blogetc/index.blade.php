@@ -24,6 +24,7 @@
     <!-- END PAGEHEADING SECTION -->
 
     <!--SECTION START-->
+    
     <section>
         <div class="container com-sp pad-bot-70 pg-inn">
             <div class="row">
@@ -64,8 +65,10 @@
                                     <div class='alert alert-danger'>Oops! No post available.</div>
                                 @endforelse
                             </div>
-                            <div class="pg-pagina">
-                                <ul class="pagination">
+                            
+                            <div class="pagination">
+                            <!--     <ul class="pagination">
+
                                     <li class="disabled"><a href="#!"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
                                     <li class="active"><a href="#!">1</a></li>
                                     <li class="waves-effect"><a href="#!">2</a></li>
@@ -73,10 +76,43 @@
                                     <li class="waves-effect"><a href="#!">4</a></li>
                                     <li class="waves-effect"><a href="#!">5</a></li>
                                     <li class="waves-effect"><a href="#!"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+
+                                    <li class="active">
+                                        {{$posts->links()}}
+                                    </li>
+                                </ul> -->
+                                @if ($posts->hasPages())
+  
+                                <ul class="pagination">
+                                    {{-- Previous Page Link --}}
+                                    @if ($posts->onFirstPage())
+                                        <li class="page-item disabled" aria-disabled="true">
+                                            <span class="page-link">@lang('pagination.previous')</span>
+                                        </li>
+                                    @else
+                                        <li class="active">
+                                            <a class="waves" href="{{ $posts->previousPageUrl() }}" rel="prev">@lang('pagination.previous')</a>
+                                        </li>
+                                    @endif
+
+                                    {{-- Next Page Link --}}
+                                    @if ($posts->hasMorePages())
+                                        <li class="active">
+                                            <a class="waves" href="{{ $posts->nextPageUrl() }}" rel="next">@lang('pagination.next')</a>
+                                        </li>
+                                    @else
+                                        <li class="page-item disabled" aria-disabled="true">
+                                            <span class="page-link">@lang('pagination.next')</span>
+                                        </li>
+                                    @endif
                                 </ul>
+                           
+                        @endif
+
 
                             </div>
                         </div>
+                      
                     </div>
                     <div class="col-md-4">
                         <div class="cor-side-com">
