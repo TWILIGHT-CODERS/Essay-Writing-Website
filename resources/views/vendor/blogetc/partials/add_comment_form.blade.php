@@ -97,40 +97,46 @@
 
 
 
-<div class="cor-p7-revi">
-    <form class="col s12" method="post" action="{{ route('blogetc.comments.add_new_comment', $post->slug) }}">
-        <h4>Add New Comment.</h4>
+<div class="blog-comments-form">
+    <div class="bottom-title">
+    <form class="form" method="post" action="{{ route('blogetc.comments.add_new_comment', $post->slug) }}">
+        <h2>Leave a comment</h2>
             @csrf
 
         @if(config("blogetc.comments.save_user_id_if_logged_in", true) == false || !Auth::check())
             <div class="row">
-                <div class="input-field col s6">
-                    <input type="text" name="author_name" class="validate" value="{{old("author_name")}}">
-                    <label>Name</label>
+                <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                                <label>Your Name<span>*</span></label>
+                                <input type="text" name="author_name" value="{{old("author_name")}}" class="validate">
+                        </div>
                 </div>
                 @if(config("blogetc.comments.ask_for_author_email"))
-                <div class="input-field col s6">
-                    <input type="email" name="author_email" class="validate" value="{{old("author_email")}}">
-                    <label>Email id</label>
+                <div class="col-lg-6 col-md-6 col-12">
+                        <div class="form-group">
+                                <label>Your Email<span>*</span></label>
+                                <input type="email" name="author_email" class="validate" value="{{old("author_email")}}">
+                        </div>
                 </div>
             </div>
             @endif
         @endif
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="comment" class="materialize-textarea">{{ old('comment') }}</textarea>
-                <label>Message</label>
+                <div class="form-group">
+                    <label>Your Comment<span>*</span></label>
+                    <textarea name="comment" rows="6">{{ old('comment') }}</textarea>
+                </div>
             </div>
         </div>
         @if($captcha)
             Captcha is enabled. Load the type class and then include the view as defined in the captcha class.
             @include($captcha->view())
         @endif
-        <div class="row">
-            <div class="input-field col s12">
-                <input type="submit" value="Submit" class="waves-effect waves-light btn-book">
-            </div>
+        <div class="form-group button"> 
+            <button type="submit" class="bizwheel-btn primary effect">Submit Comment<i class="fa fa-paper-plane"></i></button>
         </div>
     </form>
+</div>
 </div>
 

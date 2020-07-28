@@ -10,18 +10,12 @@
 {{--    @endforeach--}}
 {{--</ul>--}}
 
-@foreach(\WebDevEtc\BlogEtc\Models\Post::orderBy('posted_at','desc')->limit(5)->get() as $post)
-<li>
-    <div class="ho-ev-img-sm">
-        <?=$post->imageTag('thumbnail', true, ''); ?>
+@foreach(\WebDevEtc\BlogEtc\Models\Post::orderBy('posted_at','desc')->limit(4)->get() as $post)
+ <div class="single-f-news">
+    <div class="post-thumb"><a href="{{ $post->url() }}"><?=$post->imageTag('thumbnail', true, 'style="background-color: #000;"'); ?></a></div>
+    <div class="content">
+        <p class="post-meta"><time class="post-date"><i class="fa fa-clock-o"></i>{{ $post->posted_at->diffForHumans() }}</time></p>
+        <h4 class="title"><a href="{{ $post->url() }}">{{ $post->title }}</a></h4>
     </div>
-    <div class="ho-ev-link-rt">
-        <a href="{{ $post->url() }}" title="{{ $post->title }}">
-            <h4>{{ $post->title }}</h4>
-        </a>
-        {{--                                            <p>Etiam ornare lacus nec lectus vestibulum aliquam.</p>--}}
-        <span><small>Posted {{ $post->posted_at->diffForHumans() }}</small></span>
-        <a href="{{ $post->url() }}" class="ad-st-view" style="float: right;">View Post</a>
-    </div>
-</li>
+</div>
 @endforeach

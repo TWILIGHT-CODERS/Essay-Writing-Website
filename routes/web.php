@@ -13,6 +13,8 @@
 
 Route::group(['middleware' => ['get.menu']], function () {
     //web routes
+    // Route::get('contact-us', 'ContactUSController@contactUS');
+    // Route::post('contact-us', ['as'=>'contactus.store','uses'=>'ContactUSController@contactUSPost']);
     Route::get('/', function () {           return view('web.index'); });
     Route::get('/blogs', function () {           return view('web.blog.blog'); });
     Route::get('/price', function () {           return view('web.price'); });

@@ -20,7 +20,7 @@
 {{--</div>--}}
 
 @foreach($post->categories as $category)
-<a href="{{$category->url()}}" class="ad-st-view"><i class="fa fa-tag"></i> {{ $category->category_name }}</a></span>
+<li><i class="fa fa-tag"></i>{{ $category->category_name }}</li>
 @endforeach
 @if(Auth::check() && Auth::user()->canManageBlogEtcPosts())
     <a href="{{$post->editUrl()}}" class="btn btn-outline-info pull-right float-right">

@@ -23,11 +23,7 @@ mix.copy('node_modules/cropperjs/dist/cropper.css', 'public/css');
 mix.sass('resources/sass/style.scss', 'public/css');
 
 //web css
-mix.copy('resources/sass/web/bootstrap.css', 'public/css/web');
-mix.copy('resources/sass/web/font-awesome.min.css', 'public/css/web');
-mix.copy('resources/sass/web/materialize.css', 'public/css/web');
-mix.copy('resources/sass/web/style.css', 'public/css/web');
-mix.copy('resources/sass/web/style-mob.css', 'public/css/web');
+mix.copy('resources/sass/web', 'public/css/web');
 
 //************** SCRIPTS ****************** 
 // general scripts
@@ -42,10 +38,7 @@ mix.copy('node_modules/@coreui/chartjs/dist/js/coreui-chartjs.bundle.js', 'publi
 mix.copy('node_modules/cropperjs/dist/cropper.js', 'public/js');
 
 // web scripts
-mix.copy('resources/js/web/bootstrap.min.js', 'public/js/web');
-mix.copy('resources/js/web/custom.js', 'public/js/web');
-mix.copy('resources/js/web/main.min.js', 'public/js/web');
-mix.copy('resources/js/web/materialize.min.js', 'public/js/web');
+mix.copy('resources/js/web', 'public/js/web');
 
 
 // details scripts
@@ -56,9 +49,10 @@ mix.copy('resources/js/coreui/widgets.js', 'public/js');
 mix.copy('resources/js/coreui/popovers.js', 'public/js');
 mix.copy('resources/js/coreui/tooltips.js', 'public/js');
 
-//datatables css/js
+//datatables css/js && customs
 mix.copy('resources/js/datatables-bs4', 'public/js/datatables-bs4');
 mix.copy('resources/sass/datatables-bs4', 'public/css/datatables-bs4');
+mix.copy('resources/js/custom/custom.js', 'public/js/custom');
 
 // details scripts admin-panel
 mix.js('resources/js/coreui/menu-create.js', 'public/js');

@@ -41,5 +41,3 @@
             shown.</em>
     </p>
 @endif
-
-
